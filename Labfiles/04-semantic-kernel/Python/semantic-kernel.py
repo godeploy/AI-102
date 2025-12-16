@@ -8,18 +8,10 @@ from typing import Annotated
 # Create a Plugin for the email functionality
 
 async def process_expenses_data(prompt: str, expenses_data: str) -> None:
+    
     # Load environment configuration (for AzureAIAgentSettings)
-    load_dotenv()
-    ai_agent_settings = AzureAIAgentSettings()
 
     # Authenticate and connect to the Azure AI Foundry project
-    async with (
-        DefaultAzureCredential(
-            exclude_environment_credential=True,
-            exclude_managed_identity_credential=True,
-        ) as credential,
-        AzureAIAgent.create_client(credential=credential) as project_client,
-    ):
         
         # Define an Azure AI agent for expense claim submission
 
